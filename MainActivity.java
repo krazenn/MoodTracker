@@ -34,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
         mLinearLayout = findViewById(R.id.input_comment);
         mSave = findViewById(R.id.save);
 
+        /*
+        Permet de switch entre les différents smiley et la couleur du background
+         */
         mNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,6 +69,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        /*
+        Affiche ou enlève la zone dez saisie commentaire
+        avec bouton d'enregistrement
+         */
         mComment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,6 +87,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        /*
+        Permet d'enregistrer le commentaire saisie
+         */
         mSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
