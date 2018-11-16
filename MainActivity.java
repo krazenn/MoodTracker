@@ -2,27 +2,39 @@ package com.example.kraken.moodtracker;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 public class MainActivity extends AppCompatActivity {
+
     RelativeLayout mLayout;
     ImageView mImage;
-    ImageButton mNext;
     ImageButton mComment;
+    ImageButton mHistory;
+    ImageButton mNext;
+    LinearLayout mLinearLayout;
+    Button mSave;
+
     int a = 0;
+    int b = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-         mImage = findViewById(R.id.imagehappy);
-         mNext = findViewById(R.id.next);
-         mComment = findViewById(R.id.comment);
-         mLayout = findViewById(R.id.layout);
-        mNext.setOnClickListener(new View.OnClickListener() {
 
+        mLayout = findViewById(R.id.layout);
+        mImage = findViewById(R.id.imagehappy);
+         mComment = findViewById(R.id.comment);
+         mNext = findViewById(R.id.next);
+        mHistory = findViewById(R.id.history);
+        mLinearLayout = findViewById(R.id.input_comment);
+        mSave = findViewById(R.id.save);
+
+        mNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 switch (v.getId()) {
@@ -45,12 +57,33 @@ public class MainActivity extends AppCompatActivity {
                             a = 4;
                         }
                          else if (a == 4) {
-                        mImage.setImageResource(R.drawable.smileyhappy);
-                        mLayout.setBackgroundResource(R.color.light_sage);
+                            mImage.setImageResource(R.drawable.smileyhappy);
+                            mLayout.setBackgroundResource(R.color.light_sage);
                         a = 0;
                         }
                         break;
                 }
+            }
+        });
+
+        mComment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                        if (b == 0) {
+                            mLinearLayout.setVisibility(View.VISIBLE);
+                            b = 1;
+                        }
+                        else if (b == 1){
+                            mLinearLayout.setVisibility(View.INVISIBLE);
+                            b = 0;
+                        }
+            }
+        });
+
+        mSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mLinearLayout.setVisibility(View.INVISIBLE);
             }
         });
     }
