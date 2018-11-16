@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView mImage;
     ImageButton mComment;
     ImageButton mHistory;
-    ImageButton mNext;
+    Button mNext;
     LinearLayout mLinearLayout;
     Button mSave;
 
