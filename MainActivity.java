@@ -14,11 +14,14 @@ public class MainActivity extends AppCompatActivity {
     ImageView mImage;
     ImageButton mComment;
     ImageButton mHistory;
-    Button mNext;
+    ImageButton mNext;
     LinearLayout mLinearLayout;
     Button mSave;
 
-    int a = 0;
+    private int currentImage;
+    int[] smileyImage = {R.drawable.smileyhappy, R.drawable.smileysuperhappy,R.drawable.smileysad, R.drawable.smileydisapointed, R.drawable.smileynormal};
+    int[] colorBackground = {R.color.light_sage, R.color.banana_yellow, R.color.faded_red, R.color.warm_grey, R.color.cornflower_blue_65};
+
     int b = 0;
 
     @Override
@@ -40,32 +43,10 @@ public class MainActivity extends AppCompatActivity {
         mNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switch (v.getId()) {
-                    case R.id.next:
-                        if (a == 0) {
-                            mImage.setImageResource(R.drawable.smileysuperhappy);
-                            mLayout.setBackgroundResource(R.color.banana_yellow);
-                            a = 1;
-                        } else if (a == 1) {
-                            mImage.setImageResource(R.drawable.smileysad);
-                            mLayout.setBackgroundResource(R.color.faded_red);
-                            a = 2;
-                        } else if (a == 2) {
-                            mImage.setImageResource(R.drawable.smileydisapointed);
-                            mLayout.setBackgroundResource(R.color.warm_grey);
-                            a = 3;
-                        } else if (a == 3) {
-                            mImage.setImageResource(R.drawable.smileynormal);
-                            mLayout.setBackgroundResource(R.color.cornflower_blue_65);
-                            a = 4;
-                        }
-                         else if (a == 4) {
-                            mImage.setImageResource(R.drawable.smileyhappy);
-                            mLayout.setBackgroundResource(R.color.light_sage);
-                        a = 0;
-                        }
-                        break;
-                }
+                currentImage++;
+                currentImage = currentImage % smileyImage.length;
+                mImage.setImageResource(smileyImage[currentImage]);
+                mLayout.setBackgroundResource(colorBackground[currentImage]);
             }
         });
 
