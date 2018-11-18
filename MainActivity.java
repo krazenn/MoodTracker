@@ -1,6 +1,9 @@
 package com.example.kraken.moodtracker;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -10,19 +13,12 @@ import android.widget.RelativeLayout;
 
 public class MainActivity extends AppCompatActivity {
 
-    RelativeLayout mLayout;
-    ImageView mImage;
-    ImageButton mComment;
-    ImageButton mHistory;
-    ImageButton mNext;
-    LinearLayout mLinearLayout;
-    Button mSave;
+    private RelativeLayout mLayout;
+    private ImageView mImage;
 
     private int currentImage;
-    int[] smileyImage = {R.drawable.smileyhappy, R.drawable.smileysuperhappy,R.drawable.smileysad, R.drawable.smileydisapointed, R.drawable.smileynormal};
-    int[] colorBackground = {R.color.light_sage, R.color.banana_yellow, R.color.faded_red, R.color.warm_grey, R.color.cornflower_blue_65};
-
-    int b = 0;
+    private int[] smileyImage = {R.drawable.smileyhappy, R.drawable.smileysuperhappy,R.drawable.smileysad, R.drawable.smileydisapointed, R.drawable.smileynormal};
+    private int[] colorBackground = {R.color.light_sage, R.color.banana_yellow, R.color.faded_red, R.color.warm_grey, R.color.cornflower_blue_65};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,16 +27,14 @@ public class MainActivity extends AppCompatActivity {
 
         mLayout = findViewById(R.id.layout);
         mImage = findViewById(R.id.imagehappy);
-         mComment = findViewById(R.id.comment);
-         mNext = findViewById(R.id.next);
-        mHistory = findViewById(R.id.history);
-        mLinearLayout = findViewById(R.id.input_comment);
-        mSave = findViewById(R.id.save);
+        ImageButton imgBtnComment = findViewById(R.id.comment);
+        ImageButton imgBtnNext = findViewById(R.id.next);
+        ImageButton imgBtnHistory = findViewById(R.id.history);
 
         /*
         Permet de switch entre les différents smiley et la couleur du background
          */
-        mNext.setOnClickListener(new View.OnClickListener() {
+        imgBtnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 currentImage++;
@@ -51,33 +45,31 @@ public class MainActivity extends AppCompatActivity {
         });
 
         /*
-        Affiche ou enlève la zone dez saisie commentaire
+        Affiche ou enlève la zone de saisie commentaire
         avec bouton d'enregistrement
          */
-        mComment.setOnClickListener(new View.OnClickListener() {
+        imgBtnComment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                        if (b == 0) {
-                            mLinearLayout.setVisibility(View.VISIBLE);
-                            b = 1;
-                        }
-                        else if (b == 1){
-                            mLinearLayout.setVisibility(View.INVISIBLE);
-                            b = 0;
-                        }
-            }
-        });
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                LayoutInflater inflater = MainActivity.this.getLayoutInflater();
+                builder.setTitle("Humeur du jour");
+                builder.setView(inflater.inflate(R.layout.dialog_comment, null))
+                        .setPositiveButton(R.string.Enregistrer, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
 
-        /*
-        Permet d'enregistrer le commentaire saisie
-         */
-        mSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mLinearLayout.setVisibility(View.INVISIBLE);
-            }
+                            }
+                        })
+                        .setNegativeButton(R.string.Annuler, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        });
+                builder.create();
+                builder.show();
+                }
         });
     }
-
-
 }
