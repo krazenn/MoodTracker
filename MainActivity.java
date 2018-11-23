@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         mImage.setImageResource(smileyImage[sharedPref.getInt(BUNDLE_CURRENT_THEME,0) -1]);
         mLayout.setBackgroundResource(colorBackground[sharedPref.getInt(BUNDLE_CURRENT_THEME,0) -1]);
+        currentImage = sharedPref.getInt(BUNDLE_CURRENT_THEME,0);
 
         /*
         Permet de switch entre les différents smiley et la couleur du background
