@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -31,9 +30,9 @@ public class MainActivity extends AppCompatActivity {
 
         mLayout = findViewById(R.id.layout);
         mImage = findViewById(R.id.ivSmiley);
-        ImageButton imgBtnComment = findViewById(R.id.comment);
-        ImageButton imgBtnNext = findViewById(R.id.next);
-        ImageButton imgBtnHistory = findViewById(R.id.history);
+        ImageButton imgBtnComment = findViewById(R.id.iBtnComment);
+        ImageButton imgBtnNext = findViewById(R.id.iBtnNext);
+        ImageButton imgBtnHistory = findViewById(R.id.iBtnHistory);
 
         sharedPref = getPreferences(MODE_PRIVATE);
 

@@ -3,26 +3,40 @@ package com.example.kraken.moodtracker;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
+import android.support.annotation.RequiresApi;
+import android.support.v7.app.AppCompatDialogFragment;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.widget.EditText;
 
-public class CommentDialog extends DialogFragment {
+import java.util.Objects;
+
+
+
+public class CommentDialog extends AppCompatDialogFragment {
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        // Use the Builder class for convenient dialog construction
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setMessage(R.string.saisir_commentaire_sur_votre_humeur)
+        LayoutInflater inflater = Objects.requireNonNull(getActivity()).getLayoutInflater();
+        builder.setTitle("Humeur du jour");
+        builder.setView(inflater.inflate(R.layout.dialog_comment, null))
                 .setPositiveButton(R.string.Enregistrer, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // FIRE ZE MISSILES!
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+
+
+
                     }
                 })
                 .setNegativeButton(R.string.Annuler, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // User cancelled the dialog
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
                     }
                 });
-        // Create the AlertDialog object and return it
         return builder.create();
     }
 
