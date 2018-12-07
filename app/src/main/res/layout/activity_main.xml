@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_sage"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/ivSmiley"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginBottom="48dp"
+        android:src="@drawable/smileyhappy"
+        android:layout_centerInParent="true"
+        android:contentDescription="TODO" />
+
+    <ImageButton
+        android:id="@+id/iBtnNext"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@null" />
+
+
+    <ImageButton
+        android:id="@+id/iBtnHistory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ichistoryblack"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        android:background="@null"
+        android:contentDescription="@string/historique"
+        android:layout_alignParentEnd="true" />
+
+
+    <ImageButton
+        android:id="@+id/iBtnComment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icnoteaddblack"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        android:background="@null"
+        />
+
+    <LinearLayout
+        android:id="@+id/comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    </LinearLayout>
+
+</RelativeLayout>
+
+
+
+
+
+
+

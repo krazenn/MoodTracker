@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MoodTracker</string>
+    <string name="saisir_commentaire_sur_votre_humeur">Saisir commentaire sur votre Humeur ...</string>
+    <string name="historique">Historique</string>
+    <string name="Enregistrer">Enregistrer</string>
+    <string name="Annuler">Annuler</string>
+</resources>
